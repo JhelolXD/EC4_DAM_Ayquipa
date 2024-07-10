@@ -12,35 +12,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
-
-import java.util.List;
+import com.example.damsem11_.placeholder.PlaceholderContent;
 
 /**
  * A fragment representing a list of Items.
  */
-public class NotaFragment extends Fragment {
+public class NotaFragment2 extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    private List<Nota> notaList;
-    private MyNotaRecyclerViewAdapter adapterNotas;
-    private NotasInteractionListener mListener;
-
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public NotaFragment() {
+    public NotaFragment2() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static NotaFragment newInstance(int columnCount) {
-        NotaFragment fragment = new NotaFragment();
+    public static NotaFragment2 newInstance(int columnCount) {
+        NotaFragment2 fragment = new NotaFragment2();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -59,7 +53,7 @@ public class NotaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_item_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_item_list2, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -70,20 +64,8 @@ public class NotaFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            adapterNotas = new MyNotaRecyclerViewAdapter(notaList,  mListener);
-            recyclerView.setAdapter(adapterNotas);
+            recyclerView.setAdapter(new MyNotaRecyclerViewAdapter2(PlaceholderContent.ITEMS));
         }
         return view;
     }
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if(context instanceof NotasInteractionListener){
-            mListener = (NotasInteractionListener) context;
-        }else{
-            throw new RuntimeException(context.toString()
-                    + "Debe implementarse NotasInteractionListener");
-        }
-    }
-
 }

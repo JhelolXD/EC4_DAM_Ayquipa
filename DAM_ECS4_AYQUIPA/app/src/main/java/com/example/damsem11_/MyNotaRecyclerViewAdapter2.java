@@ -7,33 +7,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
-import com.example.damsem11_.databinding.FragmentItemBinding;
+import com.example.damsem11_.placeholder.PlaceholderContent.PlaceholderItem;
+import com.example.damsem11_.databinding.FragmentItem2Binding;
 
 import java.util.List;
 
-public class MyNotaRecyclerViewAdapter extends RecyclerView.Adapter<MyNotaRecyclerViewAdapter.ViewHolder> {
+/**
+ * {@link RecyclerView.Adapter} that can display a {@link PlaceholderItem}.
+ * TODO: Replace the implementation with code for your data type.
+ */
+public class MyNotaRecyclerViewAdapter2 extends RecyclerView.Adapter<MyNotaRecyclerViewAdapter2.ViewHolder> {
 
-    private final List<Nota> mValues;
-    private final NotasInteractionListener mListener;
+    private final List<PlaceholderItem> mValues;
 
-
-
-}
-
-    public MyNotaRecyclerViewAdapter(List<Nota> notaList, NotasInteractionListener mListener) {
-        this.mValues = notaList;
-        this.mListener = mListener;
+    public MyNotaRecyclerViewAdapter2(List<PlaceholderItem> items) {
+        mValues = items;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        return new ViewHolder(FragmentItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
-        View view = LayoutInflater.from(parent.getContext())
+        return new ViewHolder(FragmentItem2Binding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
 
-                .inflate(R.layout.fragment_item, parent, false);
-        return new ViewHolder(view);
     }
 
     @Override
@@ -53,7 +48,7 @@ public class MyNotaRecyclerViewAdapter extends RecyclerView.Adapter<MyNotaRecycl
         public final TextView mContentView;
         public PlaceholderItem mItem;
 
-        public ViewHolder(FragmentItemBinding binding) {
+        public ViewHolder(FragmentItem2Binding binding) {
             super(binding.getRoot());
             mIdView = binding.itemNumber;
             mContentView = binding.content;
